@@ -21,5 +21,25 @@ package com.mouredev.weeklychallenge2022
  */
 
 fun main() {
+
+    println(isAnagram("Agranda", "Granada"))
+
 }
 
+fun isAnagram(word1:String, word2:String):Boolean {
+
+    return isContained(word1.lowercase(), word2.lowercase()) && isContained(word2.lowercase(), word1.lowercase()) && word1.length == word2.length && word1.lowercase() != word2.lowercase()
+
+
+}
+
+fun isContained(word1:String, word2:String): Boolean = word1.all { letter -> word2.contains(letter) }
+
+/*Published solution
+private fun isAnagram(wordOne: String, wordTwo: String): Boolean {
+    if (wordOne.lowercase() == wordTwo.lowercase()) {
+        return false
+    }
+    return wordOne.lowercase().toCharArray().sortedArray().contentEquals(wordTwo.lowercase().toCharArray().sortedArray())
+}
+*/
